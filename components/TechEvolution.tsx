@@ -171,7 +171,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 rounded-3xl" style={{ backgroundColor: era.theme }}>
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12" style={{ backgroundColor: era.theme }}>
         {/* Section Header - Year Left, Title Right */}
         <motion.div
           className="mb-12 md:mb-16 flex items-start justify-between gap-8"
@@ -204,7 +204,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
         </motion.div>
 
         {/* Tech Stack Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto mb-12">
           {era.technologies.map((tech, techIndex) => {
             // Cascade delay
             const cascadeDelay = techIndex * 0.08;
@@ -214,9 +214,9 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
                 key={`${tech.name}-${techIndex}`}
                 className="
                   bento-card
-                  p-6 md:p-8
-                  min-h-[200px] md:min-h-[220px]
-                  flex flex-col items-center justify-center gap-3
+                  p-4 md:p-5
+                  min-h-[160px] md:min-h-[180px]
+                  flex flex-col items-center justify-center gap-2
                   group
                   hover:shadow-lg hover:scale-[1.02]
                   transition-all duration-300
@@ -233,7 +233,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
                 {/* Tech Icon */}
                 <Icon
                   name={tech.name}
-                  className="w-12 h-12 md:w-14 md:h-14 opacity-80 group-hover:opacity-100 transition-opacity"
+                  className="w-10 h-10 md:w-11 md:h-11 opacity-80 group-hover:opacity-100 transition-opacity"
                 />
 
                 {/* Tech Name */}

@@ -44,7 +44,7 @@ export default function VisualTransition() {
 
           {/* Decorative morphing elements */}
           <motion.div
-            className="absolute top-1/4 left-1/4 w-24 h-24 border border-stone-muted/20 rounded-full"
+            className="absolute top-1/4 left-1/4 w-24 h-24 border border-stone-muted/20"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 90, 0],
