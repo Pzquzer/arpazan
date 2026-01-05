@@ -3,6 +3,7 @@
 import { motion, useInView, useScroll } from 'framer-motion';
 import { useRef, useState, useEffect, forwardRef } from 'react';
 import { techEras } from '@/data/techEras';
+import { useTranslations } from 'next-intl';
 import Icon from './Icon';
 
 export default function TechEvolution() {
@@ -140,6 +141,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
   ({ era, index, onInView }, forwardedRef) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: '-40% 0px -40% 0px' });
+    const t = useTranslations();
 
     useEffect(() => {
       if (isInView) {
@@ -149,6 +151,10 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
 
     // Determine if this is the hero (2025)
     const isHero = era.id === 2025;
+
+    // Get translated era data
+    const eras = t.raw('eras') as any[];
+    const eraData = eras.find((e) => e.year === era.id) || { title: era.title, caption: era.caption };
 
     return (
       <motion.section
@@ -161,7 +167,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
           }
           (ref as any).current = el;
         }}
-        className={`sticky h-screen flex items-center ${index === 0 ? 'top-20 md:top-24' : 'top-0'}`}
+        className={`sticky h-[100vh] flex items-center top-20 md:top-24`}
         style={{
           zIndex: index,
           backgroundColor: 'var(--bg-primary)'
@@ -171,16 +177,16 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12" style={{ backgroundColor: era.theme }}>
-        {/* Section Header - Year Left, Title Right */}
+      <div className="w-full h-full mx-auto px-6 md:px-24 py-12 flex flex-col" style={{ backgroundColor: era.theme }}>
+        {/* Section Header - Year and Title on Right */}
         <motion.div
-          className="mb-12 md:mb-16 flex items-start justify-between gap-8"
+          className="mb-12 md:mb-16 flex flex-col gap-3 items-end text-right"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Year - Left */}
+          {/* Year */}
           <motion.div>
             <span
               className={`
@@ -192,19 +198,19 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
             </span>
           </motion.div>
 
-          {/* Title - Right */}
+          {/* Title */}
           <h3
             className={`
-              display-text text-deep-black text-right leading-tight flex-1
+              display-text text-deep-black leading-tight
               ${isHero ? 'text-2xl md:text-3xl lg:text-4xl' : 'text-xl md:text-2xl lg:text-3xl'}
             `}
           >
-            {era.title}
+            {eraData.title}
           </h3>
         </motion.div>
 
         {/* Tech Stack Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 mb-12">
           {era.technologies.map((tech, techIndex) => {
             // Cascade delay
             const cascadeDelay = techIndex * 0.08;
@@ -214,12 +220,9 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
                 key={`${tech.name}-${techIndex}`}
                 className="
                   bento-card
-                  p-4 md:p-5
-                  min-h-[160px] md:min-h-[180px]
+                  p-3 md:p-4
+                  min-h-[140px] md:min-h-[160px]
                   flex flex-col items-center justify-center gap-2
-                  group
-                  hover:shadow-lg hover:scale-[1.02]
-                  transition-all duration-300
                 "
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -233,7 +236,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
                 {/* Tech Icon */}
                 <Icon
                   name={tech.name}
-                  className="w-10 h-10 md:w-11 md:h-11 opacity-80 group-hover:opacity-100 transition-opacity"
+                  className="w-10 h-10 md:w-11 md:h-11 opacity-80"
                 />
 
                 {/* Tech Name */}
@@ -255,8 +258,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
         {/* Caption */}
         <motion.p
           className={`
-            body-text italic font-light leading-relaxed text-zinc-subtle text-center
-            max-w-2xl mx-auto
+            body-text italic font-light leading-relaxed text-zinc-subtle text-right
             ${isHero ? 'text-lg md:text-xl' : 'text-base md:text-lg'}
           `}
           initial={{ opacity: 0 }}
@@ -264,7 +266,7 @@ const EraSection = forwardRef<HTMLElement, EraSectionProps>(
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          "{era.caption}"
+          "{eraData.caption}"
         </motion.p>
       </div>
       </motion.section>

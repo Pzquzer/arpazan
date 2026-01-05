@@ -43,7 +43,7 @@ export default function StickyBrand() {
       }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="w-full px-6 md:px-12 py-4 backdrop-blur-md bg-off-white/80 border-b border-zinc-subtle/10">
+      <div className="w-full px-6 md:px-12 py-4 backdrop-blur-md">
         <div className="max-w-7xl mx-auto relative flex items-center justify-center">
           {/* Arpazan Brand - Center */}
           <h1 className="display-text text-2xl md:text-3xl font-bold text-electric-crimson tracking-tight">
