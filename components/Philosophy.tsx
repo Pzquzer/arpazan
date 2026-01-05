@@ -25,18 +25,33 @@ export default function Philosophy() {
           </motion.h2>
 
           <div className="space-y-10">
-            {points.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: 0.2 + index * 0.15 }}
-              >
-                <p className="display-text text-2xl md:text-4xl lg:text-5xl text-deep-black leading-tight">
-                  {point}
-                </p>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <p className="display-text text-2xl md:text-4xl lg:text-5xl text-deep-black">
+                I choose tools for <span className="text-electric-crimson font-medium">clarity</span>, not trends.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+            >
+              <p className="display-text text-2xl md:text-4xl lg:text-5xl text-deep-black">
+                I design interfaces to feel <span className="text-electric-crimson font-medium">effortless</span>.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <p className="display-text text-2xl md:text-4xl lg:text-5xl text-deep-black">
+                I value <span className="text-electric-crimson font-medium">maintainability</span> more than cleverness.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>

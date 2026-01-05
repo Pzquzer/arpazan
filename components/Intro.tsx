@@ -14,22 +14,22 @@ export default function Intro() {
       <div className="max-w-4xl mx-auto text-center">
         {/* Line 1 - Fade in only, no distraction */}
         <motion.p
-          className="display-text text-3xl md:text-5xl lg:text-6xl text-deep-black leading-tight"
+          className="display-text text-3xl md:text-5xl lg:text-6xl text-deep-black"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
         >
-          {t('line1')}
+          I don't believe <span className="text-electric-crimson">growth</span> is measured by the number of tools I've used.
         </motion.p>
 
         {/* Line 2 - Subtle delayed fade */}
         <motion.p
-          className="display-text text-3xl md:text-5xl lg:text-6xl text-zinc-subtle leading-tight mt-8"
+          className="display-text text-3xl md:text-5xl lg:text-6xl text-zinc-subtle mt-8 md:mt-12"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1.5, delay: 0.4, ease: 'easeOut' }}
         >
-          {t('line2')}
+          It's measured by how my <span className="text-electric-crimson font-medium">thinking evolved</span> alongside them.
         </motion.p>
       </div>
     </section>

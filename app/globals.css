@@ -13,6 +13,7 @@
     --text-primary: #0E0E0E;
     --text-secondary: #FAFAFA;
     --accent: #71717A;
+    --highlight: #E1062C; /* Electric Crimson */
 
     /* Era-specific tones */
     --era-1: #F5F5F4;
@@ -118,12 +119,12 @@
   font-family: var(--font-editorial);
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.3; /* Increased for Thai support */
 }
 
 .body-text {
   font-family: var(--font-geist-sans);
-  line-height: 1.7;
+  line-height: 1.9; /* Increased for Thai support */
   letter-spacing: -0.01em;
 }
 

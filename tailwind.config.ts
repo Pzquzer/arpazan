@@ -13,6 +13,7 @@ const config: Config = {
         'deep-black': '#0E0E0E',
         'stone-muted': '#A8A29E',
         'zinc-subtle': '#71717A',
+        'electric-crimson': '#E1062C',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],

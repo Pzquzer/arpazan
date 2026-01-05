@@ -29,8 +29,8 @@ export default function VisualTransition() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 1.2 }}
           >
-            <p className="display-text text-3xl md:text-5xl lg:text-6xl text-off-white mb-8">
-              {t('line1')}
+            <p className="display-text text-3xl md:text-5xl lg:text-6xl text-off-white mb-8 md:mb-12">
+              <span className="text-electric-crimson">Technology</span> evolved —
             </p>
             <motion.p
               className="display-text text-3xl md:text-5xl lg:text-6xl text-stone-muted"
@@ -38,7 +38,7 @@ export default function VisualTransition() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 1.2, delay: 0.4 }}
             >
-              {t('line2')}
+              so did my <span className="text-electric-crimson font-medium">perspective</span>.
             </motion.p>
           </motion.div>
 

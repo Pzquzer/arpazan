@@ -19,16 +19,16 @@ export default function CTA() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 1 }}
           >
-            <p className="display-text text-3xl md:text-5xl lg:text-6xl text-off-white mb-4">
-              {t('line1')}
+            <p className="display-text text-3xl md:text-5xl lg:text-6xl text-off-white mb-4 md:mb-6">
+              The <span className="text-electric-crimson">tools</span> will change.
             </p>
             <motion.p
-              className="display-text text-3xl md:text-5xl lg:text-6xl text-stone-muted mb-12"
+              className="display-text text-3xl md:text-5xl lg:text-6xl text-stone-muted mb-12 md:mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              {t('line2')}
+              The <span className="text-electric-crimson font-medium">thinking</span> will keep evolving.
             </motion.p>
           </motion.div>
 
@@ -38,15 +38,15 @@ export default function CTA() {
             transition={{ duration: 1, delay: 0.6 }}
           >
             <motion.button
-              className="group relative px-10 py-5 border border-off-white text-off-white text-base md:text-lg overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="group relative px-10 py-5 border-2 border-electric-crimson text-electric-crimson text-base md:text-lg overflow-hidden font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-deep-black">
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-off-white">
                 {t('button')}
               </span>
               <motion.div
-                className="absolute inset-0 bg-off-white"
+                className="absolute inset-0 bg-electric-crimson"
                 initial={{ x: '-100%' }}
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}

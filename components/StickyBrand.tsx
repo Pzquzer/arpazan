@@ -9,8 +9,10 @@ export default function StickyBrand() {
 
   useEffect(() => {
     const updateVisibility = () => {
-      // Show when scrolled past hero section (approximately 80vh)
-      setIsVisible(window.scrollY > window.innerHeight * 0.8);
+      // Show when scrolled past hero section (after Arpazan animation completes)
+      // Hide during the animation (300-500) and show after 500
+      const scrollPos = window.scrollY;
+      setIsVisible(scrollPos > 500);
     };
 
     window.addEventListener('scroll', updateVisibility);
@@ -31,7 +33,7 @@ export default function StickyBrand() {
     >
       <div className="w-full px-6 md:px-12 py-4 backdrop-blur-md bg-off-white/80">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="display-text text-2xl md:text-3xl font-bold text-deep-black tracking-tight">
+          <h1 className="display-text text-2xl md:text-3xl font-bold text-electric-crimson tracking-tight">
             Arpazan
           </h1>
         </div>
